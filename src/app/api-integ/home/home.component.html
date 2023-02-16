@@ -1,0 +1,52 @@
+<p>home works!</p>
+
+
+<!-- <div [ngStyle]="myStyles">
+    darshak
+</div>
+
+<button (click) = "addStyle()">Click Me</button> -->
+
+<div [ngClass]="myClasses"></div>
+
+<button (click)="changeShape()">Click Me</button>
+
+<div id="select">
+  <select (change)="handleEvents($event)">
+    <option value="C">C</option>
+    <option value="C++">C++</option>
+    <option value="Java">Java</option>
+    <option value="JavaScript">JavaScript</option>
+  </select>
+
+  <p *ngIf="selectedSkill">Selected lunguage is {{ selectedSkill }}</p>
+</div>
+
+<!-- <div *ngIf="isDataArrived">
+    Loading....
+</div>
+
+<section *ngIf="isDataArrived">Your Data {{data}}</section> -->
+
+<ul>
+  <li *ngFor="let name of names">{{ name }}</li>
+</ul>
+
+<table border="1" id="data">
+  <tr>
+    <td>Job ID</td>
+    <td>Job Name</td>
+  </tr>
+  <!-- <tr *ngFor="let user of users.data.list | paginate : 
+  > -->
+  <tr
+  *ngFor="let user of users.data.list"
+>
+    <td>{{ user.job_id }}</td>
+    <td>{{ user.job_name }}</td>
+  </tr>
+</table>
+<div id="pagi">
+  <button *ngIf="users.data.pagination.has_previous" id="button-1" (click)="prev()">Prev</button>
+  <button *ngIf="users.data.pagination.has_next" id="button-2" (click)="next()">Next</button>
+</div>
