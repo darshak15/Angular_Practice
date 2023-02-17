@@ -31,6 +31,22 @@ export class HomeComponent {
     this.pagination += this.users.data.pagination.has_next
     this.fetchUserData()
   }
+
+  async deleteJob(e: any){
+    console.log(e.target.value);
+    
+   await this.userData.deleteFormData(e.target.value).subscribe((res :any )=>{
+    
+      console.log(res);
+      if(res.success){
+        this.fetchUserData()
+      }
+
+      
+    })
+    console.log("data dekete");
+    
+  }
   // built in directive ngStyle and ngClass
   myStyles= {
     width :"100px",

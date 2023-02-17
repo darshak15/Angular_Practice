@@ -1,7 +1,7 @@
 <p>form-post-api works!</p>
 <h1>Reactive Form Form Example</h1>
 <div>
-  <form [formGroup]="jobFrom" (ngSubmit)="jobformData()">
+  <form [formGroup]="jobFrom">
     <label for="fname">Job Name</label>
     <input
       type="text"
@@ -14,7 +14,8 @@
       style="color: red"
       >this field is required</span
     ><br />
-    <button type="submit" value="Submit" [disabled]="jobFrom.in">
+   
+    <button type="submit" value="Submit" [disabled]="jobFrom.invalid"  (click)="jobformData()">
       Submit
     </button>
   </form>
