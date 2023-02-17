@@ -8,8 +8,8 @@ import { UserDataService } from 'src/app/user-data.service';
   styleUrls: ['./form-post-api.component.css'],
 })
 export class FormPostApiComponent {
-success : any = true
-
+success : any = ""
+ error : any = ""
   constructor(private postdata: UserDataService) {}
 
   jobFrom: any = new FormGroup({
@@ -25,12 +25,15 @@ success : any = true
     console.log(this.jobFrom.value);
     this.postdata.insertFormData(this.jobFrom.value).subscribe((res : any) => {
       console.log(res);
-     if(res.success === true){
-      alert("Success")
+     if(res.success){
+     this.success = true
      }
      else{
-      alert(res.error[0].job_name)
+      // alert(res.error[0].job_name)
+      this.success = false;
+      this.error =res.error[0].job_name
      }
     });
+    this.jobFrom.reset()
   }
 }

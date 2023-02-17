@@ -9,6 +9,7 @@ export class UserDataService {
   url = 'http://192.168.1.135:5002/api/job';
 
   constructor(private http: HttpClient) {}
+  // to get data from API
   users(page: number) {
     return this.http.get(this.url + '?page=' + page, {
       headers: {
@@ -17,6 +18,7 @@ export class UserDataService {
       },
     });
   }
+// insert data on API
 
   insertFormData(data: any) {
     data['company_id'] = '5d36920f9f0f6f0545a66adc';
@@ -28,7 +30,7 @@ export class UserDataService {
       },
     });
   }
-
+// Delete Data from API
   deleteFormData(data: any) {
     return this.http.delete("http://192.168.1.135:5002/api/job/" + data ,
     {

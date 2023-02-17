@@ -3,21 +3,24 @@
 <div>
   <form [formGroup]="jobFrom">
     <label for="fname">Job Name</label>
-    <input
-      type="text"
-      id="fname"
-      name="job_name"
-      formControlName="job_name"
-      />
+    <input type="text" id="fname" name="job_name" formControlName="job_name" />
     <span
       *ngIf="jobname && jobname.invalid && jobname.touched"
       style="color: red"
       >this field is required</span
     ><br />
-   
-    <button type="submit" value="Submit" [disabled]="jobFrom.invalid"  (click)="jobformData()">
+    <span *ngIf="success" style="color: green">Data Added Successfully</span>
+    <span *ngIf="error" style="color: darkmagenta">{{ error }}</span>
+
+    <br />
+
+    <button
+      type="submit"
+      value="Submit"
+      [disabled]="jobFrom.invalid"
+      (click)="jobformData()"
+    >
       Submit
     </button>
   </form>
- 
 </div>
