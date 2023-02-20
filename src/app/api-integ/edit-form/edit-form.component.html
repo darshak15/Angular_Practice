@@ -1,0 +1,24 @@
+<p>edit-form works!</p>
+<div>
+    <form [formGroup]="myform1">
+      <label for="fname">Job Name</label>
+      <input
+        type="text"
+        id="demo"
+        name="job_name"
+        [value]="jobnameforedit"
+        
+      />
+     
+      <span style="color:red" *ngIf="validate && validate.invalid && validate.touched" >please make some change for edit </span><br>
+      <span style="color :green" *ngIf="success" >data has been updated</span>
+      
+      <br />
+  
+      <button type="submit" [value]="jobidforedit" (click)="postediteddata($event)">
+        Submit  
+      </button>
+  
+      
+    </form>
+  </div>

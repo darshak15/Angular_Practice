@@ -3,7 +3,7 @@
 <div>
   <form [formGroup]="jobFrom">
     <label for="fname">Job Name</label>
-    <input type="text" id="fname" name="job_name" formControlName="job_name" />
+    <input type="text" id="fname" name="job_name" formControlName="job_name"/>
     <span
       *ngIf="jobname && jobname.invalid && jobname.touched"
       style="color: red"
@@ -22,5 +22,6 @@
     >
       Submit
     </button>
+   
   </form>
 </div>

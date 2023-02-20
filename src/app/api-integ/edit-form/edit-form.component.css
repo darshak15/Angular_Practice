@@ -1,0 +1,49 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background : blue;
+}
+
+.border{
+    border: 2px solid black;
+}
+
+.circle{
+    border-radius: 50%;
+}
+#select{
+    margin-top: 2rem;
+}
+
+div {
+    text-align: center;
+}
+#data {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    /* width: 100%; */
+    text-align: center;
+  }
+  #data td, #data th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  #data tr:nth-child(even){background-color: #F2F2F2;}
+  #data tr:hover {background-color: #ddd;}
+  #data th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    /* text-align: center; */
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  #pagi{
+    display: flex;
+    
+
+  }
+
+#button-1{
+    margin-right: 16rem;
+}

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { UserDataService } from 'src/app/user-data.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,10 +12,21 @@ export class HomeComponent {
   // API calling
   users: any = '';
   pagination: number = 1;
+  job_id: any = '';
+  selected_name: any = ' ';
+  jobidforedit: any = false;
+  jobnameforedit: any = '';
+  success: any = '';
+  err: any = '';
+  errmessage: any = '';
+  editable: any = '';
 
-  constructor(private userData: UserDataService) {
+  constructor(private userData: UserDataService, private router: Router) {
     this.fetchUserData();
   }
+  myform1: any = new FormGroup({
+    job_name: new FormControl('', Validators.required),
+  });
 
   fetchUserData() {
     this.userData.users(this.pagination).subscribe((data: any) => {
@@ -37,56 +51,50 @@ export class HomeComponent {
       console.log(res);
       if (res.success) {
         this.fetchUserData();
+      } else {
+        this.fetchUserData();
       }
     });
-   
-  }
-  // built in directive ngStyle and ngClass
-  myStyles = {
-    width: '100px',
-    height: '100px',
-    color: 'red',
-    background: 'skyblue',
-  };
-
-  addStyle() {
-    this.myStyles.color = 'white';
-    this.myStyles.background = 'black';
   }
 
-  // ngClass
-
-  myClasses = {
-    box: true,
-    border: false,
-    circle: false,
-  };
-  changeShape() {
-    this.myClasses.border = !this.myClasses.border;
-    this.myClasses.circle = !this.myClasses.circle;
+  editjobname(d: any) {
+    let mydata = d.target.value;
+    this.users.data.list.filter((data: any) => {
+      this.editable = true;
+      if (mydata == data.job_id) {
+        this.jobidforedit = data.job_id;
+        this.jobnameforedit = data.job_name;
+        this.router.navigate(['editForm'], {
+          queryParams: {
+            job_id: this.jobidforedit,
+            job_name: this.jobnameforedit,
+          },
+        });
+      }
+    });
   }
+  postediteddata() {
+    console.log(this.myform1.value);
 
-  selectedSkill = '';
+    this.userData.editFormData(this.job_id, this.myform1.value).subscribe((r: any) => {
+        this.fetchUserData();
 
-  handleEvents(e: any) {
-    const value = e.target.value;
-    this.selectedSkill = value;
+        if (this.jobidforedit) {
+          if (r.success) {
+            this.jobidforedit = '';
+            this.jobnameforedit = '';
+            this.success = true;
+          } else if (!r.headers.ok) {
+            this.err = true;
+          } else {
+            this.success = false;
+            this.err = true;
+          }
+        } else {
+          this.errmessage = 'please select any job for edit ';
+        }
+        console.log(r);
+        this.myform1.reset();
+      });
   }
-
-  data = '';
-  isDataArrived = false;
-
-  // constructor(){
-  //   this.getData()
-  // }
-
-  getData() {
-    setTimeout(() => {
-      this.data = 'data from server';
-      this.isDataArrived = true;
-    }, 4000);
-  }
-  // ngFor
-
-  names: string[] = ['darshak', 'Anshul', 'Parthiv', 'Keval'];
 }
