@@ -1,0 +1,17 @@
+<div>
+  <h1>Form Array</h1>
+  <button (click)="addLesson()" class="btn" id="add">Add</button><br />
+  <!-- loop for dynamic input field -->
+  <ng-container *ngFor="let item of form.get('lesson').controls; index as i">
+    <form [formGroup]="form">
+      <div formArrayName="lesson">
+        <input formControlName="{{ i }}" placeholder="Type Something" type=text /> 
+        <span *ngIf="validate.controls[i].invalid && validate.controls[i].touched" style="color:rgb(29, 100, 207)">this field is required</span><br />
+        <input formControlName="{{ i }}" placeholder="Type Something" type=text /> 
+        <span *ngIf="validate.controls[i].invalid && validate.controls[i].touched" style="color:rgb(29, 100, 207)">this field is required</span><br />
+        <button (click)="deleteLesson(i)" class="btn" id="dele">Delete</button>
+      </div>
+    </form>
+  </ng-container>
+</div>
+  <button [disabled]="form.invalid" (click)="submitdata()" class="btn" id="sub">Submit</button>

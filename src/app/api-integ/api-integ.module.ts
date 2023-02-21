@@ -7,6 +7,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { FormPostApiComponent } from './form-post-api/form-post-api.component';
 import { RouterModule } from '@angular/router';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import { FormArrayComponent } from './form-array/form-array.component';
 
 
 
@@ -18,6 +19,7 @@ import { EditFormComponent } from './edit-form/edit-form.component';
     ReactiveFormComponent,
     FormPostApiComponent,
     EditFormComponent,
+    FormArrayComponent,
    
   ],
   imports: [
@@ -32,6 +34,7 @@ import { EditFormComponent } from './edit-form/edit-form.component';
     ReactiveFormComponent,
     FormPostApiComponent,
    EditFormComponent,
+   FormArrayComponent,
    
   ]
 })

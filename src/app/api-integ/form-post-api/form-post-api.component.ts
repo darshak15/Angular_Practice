@@ -50,9 +50,7 @@ export class FormPostApiComponent {
     this.jobFrom.reset();
   }
   postediteddata() {
-    this.userData
-      .editFormData(this.job_id, this.jobFrom.value)
-      .subscribe((r: any) => {
+    this.userData.editFormData(this.job_id, this.jobFrom.value).subscribe((r: any) => {
         if (this.jobidforedit) {
           if (r.success) {
             this.jobidforedit = '';

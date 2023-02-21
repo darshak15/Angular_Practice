@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class UserDataService {
-  // url = "https://jsonplaceholder.typicode.com/todos"
+  // api url
   url = 'http://192.168.1.135:5002/api/job';
 
   constructor(private http: HttpClient) {}
@@ -23,7 +23,7 @@ export class UserDataService {
   insertFormData(data: any) {
     data['company_id'] = '5d36920f9f0f6f0545a66adc';
 
-    return this.http.post('http://192.168.1.135:5002/api/job', data, {
+    return this.http.post(this.url, data, {
       headers: {
         Authorization:
           'Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ0b2tlbiI6ImQ2ZTRiMjIxMDYyMjNlMTZjNWRkMWE3ODBlMjM3Yzg1YTkwN2U4ZTQiLCJjb21wYW55X2lkIjoiNWQzNjkyMGY5ZjBmNmYwNTQ1YTY2YWRjIn0.T6uOeyKDyEAAbQgIEWB_-AZoX3nzHCJrRVTSOv5lApP5yD_TEhC7ZY-4QZZh9HVG8rBT9Js7ZT1vA6Fuww_t6w',
@@ -32,7 +32,7 @@ export class UserDataService {
   }
 // Delete Data from API
   deleteFormData(data: any) {
-    return this.http.delete("http://192.168.1.135:5002/api/job/" + data ,
+    return this.http.delete(this.url  + "/" + data ,
     {
       headers: {
         Authorization: "Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ0b2tlbiI6ImQ2ZTRiMjIxMDYyMjNlMTZjNWRkMWE3ODBlMjM3Yzg1YTkwN2U4ZTQiLCJjb21wYW55X2lkIjoiNWQzNjkyMGY5ZjBmNmYwNTQ1YTY2YWRjIn0.T6uOeyKDyEAAbQgIEWB_-AZoX3nzHCJrRVTSOv5lApP5yD_TEhC7ZY-4QZZh9HVG8rBT9Js7ZT1vA6Fuww_t6w"
@@ -42,7 +42,7 @@ export class UserDataService {
   }
   // edit Form Data
   editFormData(job_id : any , job_name  :any){
-    return this.http.put("http://192.168.1.135:5002/api/job/" + job_id , job_name , 
+    return this.http.put(this.url  + "/"  + job_id , job_name , 
     {
       headers: {
         Authorization: "Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ0b2tlbiI6ImQ2ZTRiMjIxMDYyMjNlMTZjNWRkMWE3ODBlMjM3Yzg1YTkwN2U4ZTQiLCJjb21wYW55X2lkIjoiNWQzNjkyMGY5ZjBmNmYwNTQ1YTY2YWRjIn0.T6uOeyKDyEAAbQgIEWB_-AZoX3nzHCJrRVTSOv5lApP5yD_TEhC7ZY-4QZZh9HVG8rBT9Js7ZT1vA6Fuww_t6w"
