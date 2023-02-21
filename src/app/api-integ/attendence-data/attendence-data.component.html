@@ -38,46 +38,49 @@
 
 <div>
   <form [formGroup]="myform">
-      <label>user_id : </label>
-      <input disabled="true" value="620a423ef63cee0008ef41b6"><br><br>
-      <label>select date : </label>
-      <input formControlName="date" type="date"><br><br>
-      <table id="data">
-          <tr>
-              <th>in time <button (click)="addintime()">add</button></th>
-              <th>out time <button (click)="addouttime()">add</button></th>
-          </tr>
-          <tr>
-              <td>
-              <ng-container *ngFor="let item of myform.get('in_time').controls; index as i">
-                  <div formArrayName="in_time" >
-                      <!-- <ion-item> -->
-                      <!-- <ion-datetime formControlName="{{i}}"  displayFormat="D MMM YYYY H:mm A" ></ion-datetime><button (click)="deletintime(i)" >delet</button>  -->
-                  <!-- </ion-item> -->
-                      <input formControlName="{{i}}" type="time" >
-                      <button (click)="deletintime(i)" >delet</button>
-                  </div>
-              </ng-container>
-              </td>
-              <td>
-              <ng-container *ngFor="let item of myform.get('out_time').controls; index as l">
-                  <div formArrayName="out_time">
-                    <input formControlName="{{l}}" type="time"> <button (click)="deletouttime(l)" >delet</button>
-                  </div>
-              </ng-container>
-          </td>
-              <!-- <td><input formControlName="out_time" type="time"> <button>delet</button></td> -->
-          </tr>
-      </table><br>
-      <label>log type : </label>
-      <select formControlName="log_type">
-          <option value="1" >attandance request</option>
-          <option value="2">work from home request</option>
-      </select><br><br>
-      <label>reason </label><br>
-      <textarea formControlName="reason"></textarea><br>
-      <span style="color: red;" *ngIf="error" >please fill all field</span>
-      <span style="color:green" *ngIf="success" >form has been submitted</span><br>
-      <button [disabled]="myform.invalid" (click)="Handlepost()">submit</button>
+    <label>User_id : </label>
+    <input disabled="true" value="620a423ef63cee0008ef41b6" /><br /><br />
+    <label>Select date : </label>
+    <input formControlName="date" type="date" /><br /><br />
+    <table id="data">
+      <tr>
+        <th>In time <button (click)="addintime()">Add</button></th>
+        <th>Out time <button (click)="addouttime()">Add</button></th>
+      </tr>
+      <tr>
+        <td>
+          <ng-container
+            *ngFor="let item of myform.get('in_time').controls; index as i"
+          >
+            <div formArrayName="in_time">
+              <input formControlName="{{ i }}" type="time" />
+              <button (click)="deletintime(i)">Delete</button>
+            </div>
+          </ng-container>
+        </td>
+        <td>
+          <ng-container
+            *ngFor="let item of myform.get('out_time').controls; index as l"
+          >
+            <div formArrayName="out_time">
+              <input formControlName="{{ l }}" type="time" />
+              <button (click)="deletouttime(l)">Delete</button>
+            </div>
+          </ng-container>
+        </td>
+      </tr>
+    </table>
+    <br />
+    <label>Log type : </label>
+    <select formControlName="log_type">
+      <option value="1">Regularize</option>
+      <option value="2">Work from home request</option></select
+    ><br /><br />
+    <label>Reason : </label><br />
+    <textarea formControlName="reason"></textarea><br />
+    <span style="color: red" *ngIf="error">Please fill all field</span>
+    <span style="color: green" *ngIf="success">Form has been submitted</span
+    ><br />
+    <button [disabled]="myform.invalid" (click)="Handlepost()">Submit</button>
   </form>
 </div>
