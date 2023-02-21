@@ -7,8 +7,8 @@
       <div formArrayName="lesson">
         <input formControlName="{{ i }}" placeholder="Type Something" type=text /> 
         <span *ngIf="validate.controls[i].invalid && validate.controls[i].touched" style="color:rgb(29, 100, 207)">this field is required</span><br />
-        <input formControlName="{{ i }}" placeholder="Type Something" type=text /> 
-        <span *ngIf="validate.controls[i].invalid && validate.controls[i].touched" style="color:rgb(29, 100, 207)">this field is required</span><br />
+        
+        
         <button (click)="deleteLesson(i)" class="btn" id="dele">Delete</button>
       </div>
     </form>

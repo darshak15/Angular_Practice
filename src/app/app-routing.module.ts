@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AttendenceDataComponent } from './api-integ/attendence-data/attendence-data.component';
 import { EditFormComponent } from './api-integ/edit-form/edit-form.component';
 import { FormArrayComponent } from './api-integ/form-array/form-array.component';
 import { FormPostApiComponent } from './api-integ/form-post-api/form-post-api.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     component : FormArrayComponent,
     path : "formArray",
+  },
+  {
+    component :AttendenceDataComponent,
+    path: "attendence-report"
   }
 ];
 

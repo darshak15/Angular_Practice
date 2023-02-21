@@ -8,6 +8,7 @@ import { FormPostApiComponent } from './form-post-api/form-post-api.component';
 import { RouterModule } from '@angular/router';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { FormArrayComponent } from './form-array/form-array.component';
+import { AttendenceDataComponent } from './attendence-data/attendence-data.component';
 
 
 
@@ -20,6 +21,7 @@ import { FormArrayComponent } from './form-array/form-array.component';
     FormPostApiComponent,
     EditFormComponent,
     FormArrayComponent,
+    AttendenceDataComponent,
    
   ],
   imports: [
@@ -35,6 +37,7 @@ import { FormArrayComponent } from './form-array/form-array.component';
     FormPostApiComponent,
    EditFormComponent,
    FormArrayComponent,
+   AttendenceDataComponent,
    
   ]
 })

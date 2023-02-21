@@ -13,11 +13,11 @@ import {
   styleUrls: ['./form-array.component.css'],
 })
 export class FormArrayComponent {
+  constructor(private fb: FormBuilder) {}
   // create formgruop and add lesson array
   form: any = new FormGroup({
     lesson: new FormArray([new FormControl(null, Validators.required)]),
   });
-  constructor(private fb: FormBuilder) {}
 // validation function
   get validate() {
     return this.form.get('lesson');
@@ -31,6 +31,7 @@ export class FormArrayComponent {
     alert('Are you sure you want to delete data');
     this.form.get('lesson').controls.splice(index, 1);
   }
+  
   // submit all array data
   submitdata() {
     console.log(this.form.value);

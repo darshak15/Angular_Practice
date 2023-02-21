@@ -40,12 +40,16 @@ input[type=text], select {
     padding: 20px;
   }
   .btn{
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px; 
-    border: 2px solid black;
-    border-radius: 8px;
-    cursor: pointer;
+    nput[type=text], select {
+   
+      padding: 10px 20px;
+      margin: 0px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
   }
   #add{
     background-color: rgb(112, 112, 177);
