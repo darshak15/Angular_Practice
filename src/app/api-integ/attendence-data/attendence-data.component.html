@@ -1,70 +1,33 @@
-<!-- <p>attendence-data works!</p>
-
-<form [formGroup]="attendece_form">
-  <label>User ID : </label>
-  <input value="user_id" /><br />
-  <br /><label>Log Type : </label>
-  <select name="" id="" formControlName="log_type">
-    <option value="1">Regulariz</option>
-    <option value="2">Work From Home Request</option></select
-  ><br />
-  <br /><label>Date : </label>
-  <input type="date" formControlName="date" /><br />
-  <br /><label>Punch Time : </label><br />
-  
-<div id="time-con" >
-    <div>
-    <label>In Time : </label> <button (click)="addIntime()"> Add  </button>
-    <ng-container  *ngFor="let intime of attendece_form.get('intime').controls; index as i">
-        <div formArrayName="intime">
-          <input type="time" formControlName = "{{ i }}"> <button (click)="deleteIntime(i)"> Delete</button>
-        </div>
-    </ng-container>  
-</div>
-<div>
-    <label>Out Time : </label> <button (click)="addOuttime()"> Add </button>
-    <ng-container *ngFor="let outtime of attendece_form.get('outtime').controls ; index as j">
-        <div formArrayName="outtime">
-            <input type="time" formControlName="{{ j }}"> <button (click)="deleteOuttime(j)"> Delete</button>
-        </div>
-    </ng-container>
-</div>
-</div>
-  <br /><label>Reason</label><br />
-  <textarea formControlName="reason"> </textarea><br />
-
-  <br /><button (click)="attendata()" [disabled]="attendece_form.invalid">Submit</button>
-</form> -->
 
 <div>
-  <form [formGroup]="myform">
+  <form [formGroup]="attendece_form">
     <label>User_id : </label>
     <input disabled="true" value="620a423ef63cee0008ef41b6" /><br /><br />
     <label>Select date : </label>
     <input formControlName="date" type="date" /><br /><br />
     <table id="data">
       <tr>
-        <th>In time <button (click)="addintime()">Add</button></th>
-        <th>Out time <button (click)="addouttime()">Add</button></th>
+        <th>In time <button (click)="addIntime()">Add</button></th>
+        <th>Out time <button (click)="addOuttime()">Add</button></th>
       </tr>
       <tr>
         <td>
           <ng-container
-            *ngFor="let item of myform.get('in_time').controls; index as i"
+            *ngFor="let item of attendece_form.get('in_time').controls; index as i"
           >
             <div formArrayName="in_time">
               <input formControlName="{{ i }}" type="time" />
-              <button (click)="deletintime(i)">Delete</button>
+              <button (click)="deleteIntime(i)">Delete</button>
             </div>
           </ng-container>
         </td>
         <td>
           <ng-container
-            *ngFor="let item of myform.get('out_time').controls; index as l"
+            *ngFor="let item of attendece_form.get('out_time').controls; index as l"
           >
             <div formArrayName="out_time">
               <input formControlName="{{ l }}" type="time" />
-              <button (click)="deletouttime(l)">Delete</button>
+              <button (click)="deleteOuttime(l)">Delete</button>
             </div>
           </ng-container>
         </td>
@@ -81,6 +44,6 @@
     <span style="color: red" *ngIf="error">Please fill all field</span>
     <span style="color: green" *ngIf="success">Form has been submitted</span
     ><br />
-    <button [disabled]="myform.invalid" (click)="Handlepost()">Submit</button>
+    <button [disabled]="attendece_form.invalid" (click)="submitAllData()">Submit</button>
   </form>
 </div>
